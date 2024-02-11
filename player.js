@@ -6,7 +6,7 @@ TODO
 */
 
 /*
-* ClapprNerdStats, ClapprStats, PlaybackRatePlugin
+* ClapprNerdStats, ClapprStats, PlaybackRatePlugin, ClapprLevelSelectorPlugin
 * watermark: "https://telegra.ph/file/800ed899115bc17f3acf7.png",
 * position: 'top-right',
 * watermarkLink: "https://telegra.ph/file/3d162a0d7c50c8ec28679.jpg",
@@ -14,16 +14,16 @@ TODO
 
 var player = new Clappr.Player({
     source: "https://mdstrm.com/live-stream-playlist/65a1d2fd7e7f14355550d570.m3u8",
-    autoPlay: true,
+    autoPlay: false,
     mute: true,
-    poster: "https://telegra.ph/file/3d162a0d7c50c8ec28679.jpg",
+    poster: "DTVC.png",
     exitFullscreenOnEnd: true,
 
     height: "100%",
     width: "100%",
 
     parentId: "#player-container",
-    plugins: [ClapprLevelSelectorPlugin, ClapprPIPPlugin],
+    plugins: [LevelSelector, ClapprPIPPlugin],
     ClapprLevelSelectorPluginConfig: {
         title: 'Calidad',
         labels: {
@@ -34,10 +34,10 @@ var player = new Clappr.Player({
         },
         labelCallback: function (playbackLevel, customLabel) {
             return customLabel + playbackLevel.level.height + 'p'; // High 720p
-        },
+        }/*,
         onLevelsAvailable: function (levels) {
             return levels.reverse(); // reverse levels order
-        },
+        },*/
     },
 
     playback: {

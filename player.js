@@ -6,7 +6,7 @@
 */
 
 var player = new Clappr.Player({
-    source: "media.m3u8",
+
     autoPlay: false,
     mute: true,
     poster: "DTVC.png",
@@ -15,8 +15,11 @@ var player = new Clappr.Player({
     height: "100%",
     width: "100%",
 
+    source: "https://mdstrm.com/live-stream-playlist/6287fd84aec915083953e86b.m3u8",
+    //source: "media.m3u8",
+
     parentId: "#player-container",
-    plugins: [PlaybackRatePlugin, LevelSelector, ClapprPIPPlugin],
+    plugins: [PlaybackRatePlugin, LevelSelector, ClapprPip.PipButton, ClapprPip.PipPlugin, HlsjsPlayback],
     levelSelectorConfig: {
         title: 'Calidad',
         labels: {

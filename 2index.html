@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player DTVC</title>
+
+  <style>
+    html,
+    body,
+    #player-container {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <!-- load Clappr -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
+  <!-- Load Playback Rate for change play speed -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/lib/clappr-playback-rate-plugin.min.js"></script>
+
+  <!-- Load PiP plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/clappr-pip@0.2.0/dist/clappr-pip.min.js"></script>
+
+  <!-- Load level-selector plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/level-selector@0.2.0/dist/level-selector.min.js"></script>
+
+  <!-- HlsjsPlayback -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@clappr/hlsjs-playback@latest/dist/hlsjs-playback.min.js"></script>
+</head>
+
+<body>
+  <div id="player-container"></div>
+
+  <!-- Load player.js -->
+  <script type="text/javascript" src="player.js"></script>
+</body>
+
+</html>

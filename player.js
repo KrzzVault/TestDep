@@ -13,7 +13,7 @@ TODO
 */
 
 var player = new Clappr.Player({
-    source: "https://mdstrm.com/live-stream-playlist/65a1d2fd7e7f14355550d570.m3u8",
+    source: "https://mdstrm.com/live-stream-playlist/6287fd84aec915083953e86b.m3u8",
     autoPlay: false,
     mute: true,
     poster: "DTVC.png",
@@ -24,7 +24,7 @@ var player = new Clappr.Player({
 
     parentId: "#player-container",
     plugins: [LevelSelector, ClapprPIPPlugin],
-    ClapprLevelSelectorPluginConfig: {
+    LevelSelectorConfig: {
         title: 'Calidad',
         labels: {
             3: '', // 655.6Kbps

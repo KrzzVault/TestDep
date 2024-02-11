@@ -1,11 +1,4 @@
 /*
-* Important
-! Warning
-? question
-TODO 
-*/
-
-/*
 * ClapprNerdStats, ClapprStats, PlaybackRatePlugin, ClapprLevelSelectorPlugin
 * watermark: "https://telegra.ph/file/800ed899115bc17f3acf7.png",
 * position: 'top-right',
@@ -13,7 +6,7 @@ TODO
 */
 
 var player = new Clappr.Player({
-    source: "https://mdstrm.com/live-stream-playlist/6287fd84aec915083953e86b.m3u8",
+    source: "media.m3u8",
     autoPlay: false,
     mute: true,
     poster: "DTVC.png",
@@ -23,8 +16,8 @@ var player = new Clappr.Player({
     width: "100%",
 
     parentId: "#player-container",
-    plugins: [LevelSelector, ClapprPIPPlugin],
-    LevelSelectorConfig: {
+    plugins: [PlaybackRatePlugin, LevelSelector, ClapprPIPPlugin],
+    levelSelectorConfig: {
         title: 'Calidad',
         labels: {
             3: '', // 655.6Kbps
@@ -43,13 +36,5 @@ var player = new Clappr.Player({
     playback: {
         disableContextMenu: true,
         controls: false,
-    },
-    clickToPauseConfig: {
-        onClickPayload: { any: 'pause' } // sends the payload to container when clicked
-    },
-    closedCaptionsConfig: {
-        title: 'Subtitles', // default is none
-        ariaLabel: 'Closed Captions', // Default is 'cc-button'
-        labelCallback: function (track) { return track.name }, // track is an object with id, name and track properties (track is TextTrack object)
-    },
+    }
 });

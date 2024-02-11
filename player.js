@@ -34,7 +34,7 @@ var player = new Clappr.Player({
         },
         labelCallback: function (playbackLevel, customLabel) {
             return customLabel + playbackLevel.level.height + 'p'; // High 720p
-        }/*,
+        },/*
         onLevelsAvailable: function (levels) {
             return levels.reverse(); // reverse levels order
         },*/

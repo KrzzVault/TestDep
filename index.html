@@ -2,46 +2,52 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Player DTVC</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-  <style>
-    html,
-    body,
-    #player-container {
-      padding: 0;
-      margin: 0;
-      height: 100%;
-      width: 100%;
-    }
-  </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
 
-  <!-- load Clappr -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr-level-selector-plugin@0.2.1/dist/level-selector.min.js"></script>
 
-  <!-- Load LevelSelector 4 change quality -->
-  <script src="https://cdn.jsdelivr.net/npm/clappr-level-selector-plugin@0.2.1/dist/level-selector.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip-plugin@latest/dist/clappr-pip-plugin.js"></script>
 
-  <!-- Load Playback Rate for change play speed -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-playback-rate-plugin@latest/lib/clappr-playback-rate-plugin.min.js"></script>
+</head>
 
-  <!-- Load nerd settings xd -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-stats/dist/clappr-stats.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-nerd-stats/dist/clappr-nerd-stats.min.js"></script>
 
-  <!-- Load PiP plugin -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr-pip-plugin@latest/dist/clappr-pip-plugin.js"></script>
-
-  <!-- Load level-selector plugin -->
-  <script src="https://cdn.jsdelivr.net/npm/level-selector@0.2.0/dist/level-selector.min.js"></script>
 </head>
 
 <body>
-  <div id="player-container"></div>
+    <div id="player"></div>
+    <script>
+        var player = new Clappr.Player({
+            source: "https://mdstrm.com/live-stream-playlist/6287fd84aec915083953e86b.m3u8",
+            autoPlay: false,
+            mute: true,
+            poster: "https://platform-static.cdn.mdstrm.com/player/background/6287e30daf2b5f36b3fd330d.png",
 
-  <!-- Load player.js -->
-  <script type="text/javascript" src="player.js"></script>
+            exitFullscreenOnEnd: true,
+            parentId: "#player",
+            plugins: [ClapprLevelSelectorPlugin, ClapprPIPPlugin],
+            ClapprLevelSelectorPluginConfig: {
+                title: 'Calidad',
+                labels: {
+                    3: '', // 655.6Kbps
+                    2: '', // 1205.6kbps
+                    1: '', // 2085kbps
+                    0: '', // 2855.6kbps
+                },
+                labelCallback: function (playbackLevel, customLabel) {
+                    return customLabel + playbackLevel.level.height + 'p'; // High 720p
+                }
+            },
+
+            playback: {
+                disableContextMenu: true,
+                controls: false,
+            },
+        });
+    </script>
 </body>
 
 </html>
